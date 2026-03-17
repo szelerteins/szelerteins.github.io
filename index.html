@@ -1,22 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Mi pagina</title>
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zetapets - Tu tienda online de productos para mascotas">
+    
+    <title>Zetapets - Productos para Mascotas</title>
 </head>
-
 <body>
-<header></header>
+    <!-- ============================================
+         HEADER (Encabezado con logo y navegación)
+         ============================================ -->
+    <header class="header">
+        <!-- Logo / Nombre de la empresa -->
+        <div class="logo">
+            <h1>Zetapets</h1>
+            <p class="tagline">Tu tienda confiable de productos para mascotas</p>
+        </div>
 
-<main>
-    <h1>Encabezado</h1>
-<h2>Subencabezado</h2>
-<p> soy un parrafo </p>
-</main>
+        <!-- Navegación principal -->
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="#categorias">Categorías</a></li>
+                <li><a href="#novedades">Novedades</a></li>
+                <li><a href="#about">Acerca de Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- ============================================
+         MAIN (Contenido principal)
+         ============================================ -->
+    <main class="main-content">
 
-<footer></footer>
-<input type="usuario">
-<input type="password">
+        <!-- ============================================
+             SECCIÓN HERO / BANNER PRINCIPAL
+             ============================================ -->
+        <section class="hero" id="inicio">
+            <!-- Espacio para banner/publicidad -->
+            <div class="hero-banner">
+                <img src="https://via.placeholder.com/1200x300" alt="Banner publicitario de Zetapets">
+            </div>
+
+            <!-- Contenido del hero -->
+            <div class="hero-content">
+                <h2 class="hero-title">Bienvenido a Zetapets</h2>
+                <p class="hero-description">
+                    Descubre la mejor selección de productos de calidad para el cuidado y bienestar de tu mascota.
+                    Desde alimentos hasta accesorios, tenemos todo lo que necesitas.
+                </p>
+                <button class="btn btn-primary">Ver Productos</button>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECCIÓN DE PRODUCTOS / PROMOCIONES
+             ============================================ -->
+        <section class="products-section" id="categorias">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <p class="section-subtitle">Explora nuestro catálogo de productos destacados</p>
+
+            <!-- Contenedor de tarjetas de productos -->
+            <div class="products-container">
+
+                <!-- Tarjeta de producto 1 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250" alt="Alimento Premium para Perros">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Alimento Premium para Perros</h3>
+                        <p class="product-description">Fórmula completa y equilibrada con ingredientes naturales.</p>
+                        <p class="product-price">$45.99</p>
+                        <button class="btn btn-secondary">Agregar al Carrito</button>
+                    </div>
+                </article>
+
+                <!-- Tarjeta de producto 2 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250" alt="Juguetes para Gatos">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Juguetes para Gatos</h3>
+                        <p class="product-description">Set de 5 juguetes interactivos para mantener a tu gato entretenido.</p>
+                        <p class="product-price">$25.50</p>
+                        <button class="btn btn-secondary">Agregar al Carrito</button>
+                    </div>
+                </article>
+
+                <!-- Tarjeta de producto 3 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250" alt="Cama Premium para Mascotas">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cama Premium para Mascotas</h3>
+                        <p class="product-description">Cama cómoda y resistente de espuma ortopédica.</p>
+                        <p class="product-price">$89.99</p>
+                        <button class="btn btn-secondary">Agregar al Carrito</button>
+                    </div>
+                </article>
+
+                <!-- Tarjeta de producto 4 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250" alt="Collar LED para Perros">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Collar LED para Perros</h3>
+                        <p class="product-description">Collar luminoso recargable para paseos nocturnos seguros.</p>
+                        <p class="product-price">$32.99</p>
+                        <button class="btn btn-secondary">Agregar al Carrito</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECCIÓN DE NOVEDADES
+             ============================================ -->
+        <section class="novedades-section" id="novedades">
+            <h2 class="section-title">Novedades</h2>
+            <p class="section-subtitle">Últimos productos agregados al catálogo</p>
+
+            <div class="novedades-container">
+                <article class="novedad-card">
+                    <h3>Nuevo: Comedero Automático</h3>
+                    <p>Comedero inteligente para alimentación programada de tu mascota.</p>
+                </article>
+                <article class="novedad-card">
+                    <h3>Oferta: Shampoo Premium</h3>
+                    <p>50% de descuento en nuestro shampoo hipoalergénico para mascotas.</p>
+                </article>
+                <article class="novedad-card">
+                    <h3>Llegó: Correa Ergonómica</h3>
+                    <p>Correa con diseño ergonómico para mayor comodidad al pasear.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECCIÓN ACERCA DE LA EMPRESA
+             ============================================ -->
+        <section class="about-section" id="about">
+            <h2 class="section-title">Acerca de Zetapets</h2>
+            <div class="about-content">
+                <p>
+                    En Zetapets, nos apasiona el bienestar de las mascotas. Desde hace más de 10 años,
+                    ofrecemos productos de la más alta calidad para ayudarte a cuidar a tus compañeros peludos.
+                </p>
+                <p>
+                    Nuestro compromiso es proporcionar una amplia variedad de productos seguros, duraderos
+                    y asequibles, junto con un servicio al cliente excepcional.
+                </p>
+                <p>
+                    Creemos que cada mascota merece lo mejor, y por eso seleccionamos cuidadosamente
+                    cada uno de nuestros productos.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         FOOTER (Pie de página)
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-content">
+
+            <!-- Sección de contacto -->
+            <div class="footer-section contact">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><strong>Teléfono:</strong> +1 (555) 123-4567</li>
+                    <li><strong>Email:</strong> <a href="mailto:info@zetapets.com">info@zetapets.com</a></li>
+                    <li><strong>Dirección:</strong> Calle Principal 123, Ciudad, País</li>
+                </ul>
+            </div>
+
+            <!-- Sección de redes sociales -->
+            <div class="footer-section social">
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="https://facebook.com/zetapets" target="_blank">Facebook</a></li>
+                    <li><a href="https://instagram.com/zetapets" target="_blank">Instagram</a></li>
+                    <li><a href="https://twitter.com/zetapets" target="_blank">Twitter</a></li>
+                </ul>
+            </div>
+
+            <!-- Sección de información -->
+            <div class="footer-section info">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#politica-privacidad">Política de Privacidad</a></li>
+                    <li><a href="#terminos">Términos y Condiciones</a></li>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Pie de página - Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Zetapets. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
 </body>
-
 </html>
