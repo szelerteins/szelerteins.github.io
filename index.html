@@ -5,1298 +5,394 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Zetapets - Tu tienda online de productos para mascotas">
     <title>Zetapets - Productos para Mascotas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============ HEADER CON NAVBAR ============ -->
+    <header class="site-header">
+        <nav class="nav-wrapper">
+            <div class="nav-logo">
+                <h1 style="font-size: 1.5rem; margin: 0; color: var(--primary-green);">Zetapets</h1>
+            </div>
+
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="#categorias" class="nav-link">Categorías</a>
+                    <div class="mega-menu">
+                        <div class="mega-inner">
+                            <div class="mega-col">
+                                <span class="mega-col-title">Mascotas</span>
+                                <ul>
+                                    <li><a href="#categoria-mascotas">Para Mascotas</a></li>
+                                    <li><a href="#categoria-perros">Para Perros</a></li>
+                                    <li><a href="#categoria-gatos">Para Gatos</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <span class="mega-col-title">Productos</span>
+                                <ul>
+                                    <li><a href="#categoria-accesorios">Accesorios</a></li>
+                                    <li><a href="#categorias">Alimentos</a></li>
+                                    <li><a href="#categorias">Higiene</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <span class="mega-col-title">Información</span>
+                                <ul>
+                                    <li><a href="#about">Acerca de Nosotros</a></li>
+                                    <li><a href="#">Envíos</a></li>
+                                    <li><a href="#">Contacto</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#ofertas" class="nav-link">Novedades</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Acerca de Nosotros</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-primary" id="cartBtn">
+                    <svg style="width: 18px; height: 18px; margin-right: 6px; stroke: currentColor; fill: none;" viewBox="0 0 24 24" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"/>
+                        <circle cx="20" cy="21" r="1"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg>
+                    <span id="cartBadge">0</span>
+                </button>
+            </div>
+
+            <button class="nav-hamburger" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+
+        <div class="nav-drawer">
+            <button class="drawer-close">✕</button>
+            <ul style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                <li><a href="#categorias">Categorías</a></li>
+                <li><a href="#ofertas">Novedades</a></li>
+                <li><a href="#about">Acerca de Nosotros</a></li>
+            </ul>
+        </div>
+        <div class="nav-overlay"></div>
+    </header>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(16, 185, 129, 0.2) 50%, rgba(13, 148, 136, 0.3) 100%), url('https://cdn.pixabay.com/photo/2018/01/03/13/54/golden-retiver-3058383_1280.jpg') center right/cover no-repeat;">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <h1 class="hero-title">Todo lo que necesita tu <span class="highlight">mascota</span></h1>
+                <p class="hero-description">Descubre la mejor selección de productos de calidad para el cuidado y bienestar de tus compañeros peludos.</p>
+                <button class="btn-hero" onclick="document.getElementById('categorias').scrollIntoView({behavior: 'smooth'})">
+                    <span>Explorar productos</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECCIÓN CATEGORÍAS ============ -->
+    <section style="padding: var(--space-xl) var(--space-lg); background: #f9fafb;" id="categorias">
+        <div style="max-width: var(--max-content); margin: 0 auto; padding: var(--space-lg);">
+            <h2 style="text-align: center; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: var(--space-xl);">Nuestras Categorías</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg);">
+                <button class="category-card" onclick="openCategoryModal('mascotas', 'Para Mascotas')">
+                    <div style="width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: var(--radius-card); margin-bottom: var(--space-md);">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px;">
+                            <circle cx="30" cy="30" r="15" fill="#10b981"/>
+                            <circle cx="70" cy="30" r="15" fill="#10b981"/>
+                            <ellipse cx="50" cy="70" rx="30" ry="25" fill="#10b981"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.1rem; font-weight: 600; margin: 0; color: #1f2937;">Para Mascotas</h3>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin: 0.5rem 0 0;">3 productos</p>
+                </button>
+                <button class="category-card" onclick="openCategoryModal('perros', 'Para Perros')">
+                    <div style="width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border-radius: var(--radius-card); margin-bottom: var(--space-md);">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px;">
+                            <ellipse cx="50" cy="50" rx="35" ry="40" fill="#ef4444"/>
+                            <circle cx="35" cy="30" r="12" fill="#ef4444"/>
+                            <circle cx="65" cy="30" r="12" fill="#ef4444"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.1rem; font-weight: 600; margin: 0; color: #1f2937;">Para Perros</h3>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin: 0.5rem 0 0;">2 productos</p>
+                </button>
+                <button class="category-card" onclick="openCategoryModal('gatos', 'Para Gatos')">
+                    <div style="width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); border-radius: var(--radius-card); margin-bottom: var(--space-md);">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px;">
+                            <polygon points="50,20 60,30 70,25 65,40 75,45 60,45 55,60 50,45 35,45 45,40 40,25 50,30" fill="#d946ef"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.1rem; font-weight: 600; margin: 0; color: #1f2937;">Para Gatos</h3>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin: 0.5rem 0 0;">1 producto</p>
+                </button>
+                <button class="category-card" onclick="openCategoryModal('accesorios', 'Accesorios')">
+                    <div style="width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: var(--radius-card); margin-bottom: var(--space-md);">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px;">
+                            <circle cx="50" cy="50" r="25" fill="#f59e0b"/>
+                            <path d="M50 25 L55 40 L70 40 L58 48 L62 63 L50 55 L38 63 L42 48 L30 40 L45 40 Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.1rem; font-weight: 600; margin: 0; color: #1f2937;">Accesorios</h3>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin: 0.5rem 0 0;">2 productos</p>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BANNER DE OFERTAS ============ -->
+    <section class="cta-banner" id="ofertas" style="background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);">
+        <div class="cta-inner">
+            <div style="text-align: center;">
+                <span style="display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">🎉 OFERTA LIMITADA</span>
+                <h2 class="cta-title" style="color: white; margin: 0 0 0.5rem 0;">¡Descuentos Increíbles Esta Semana!</h2>
+                <p class="cta-sub" style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 1.5rem;">Aprovecha hasta 40% de descuento en productos seleccionados</p>
+                <div style="margin-bottom: 2rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; max-width: 600px; margin: 0 auto; font-size: 0.9rem;">
+                        <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px; color: white;">
+                            <div style=\"font-size: 2rem; font-weight: 700; color: #fcd34d;\">-40%</div>
+                            <div>Limpiador de Pelo</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px; color: white;">
+                            <div style=\"font-size: 2rem; font-weight: 700; color: #fcd34d;\">-35%</div>
+                            <div>Comedero Automático</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px; color: white;">
+                            <div style=\"font-size: 2rem; font-weight: 700; color: #fcd34d;\">-30%</div>
+                            <div>Paños Absorbentes</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="document.getElementById('categorias').scrollIntoView({behavior: 'smooth'})" style="background: white; color: #10b981; font-weight: 700; letter-spacing: 0.5px;">Ver Todas las Ofertas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECCIÓN ALTERNANTE - FEATURES ============ -->
+    <section class="split-section" id="about">
+        <div class="split-inner">
+            <div class="split-image">
+                <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="300" height="300" fill="#f3f4f6"/>
+                    <circle cx="150" cy="120" r="80" fill="#10b981" opacity="0.8"/>
+                    <circle cx="120" cy="100" r="8" fill="white" opacity="0.4"/>
+                    <circle cx="180" cy="100" r="8" fill="white" opacity="0.4"/>
+                    <ellipse cx="150" cy="200" rx="100" ry="60" fill="#0d9488" opacity="0.6"/>
+                </svg>
+            </div>
+            <div class="split-text">
+                <h2>Acerca de Zetapets</h2>
+                <p>En Zetapets, nos apasiona el bienestar de las mascotas. Desde hace más de 10 años, ofrecemos productos de la más alta calidad para ayudarte a cuidar a tus compañeros peludos.</p>
+                <p>Nuestro compromiso es proporcionar una amplia variedad de productos seguros, duraderos y asequibles, junto con un servicio al cliente excepcional.</p>
+                <button class="btn-primary">Conoce más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MODAL DE PRODUCTOS ============ -->
+    <div id="productModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 2000; overflow-y: auto;">
+        <div style="position: relative; background: white; max-width: 900px; margin: 60px auto; border-radius: var(--radius-card); box-shadow: var(--shadow-lg); animation: slideIn 0.3s ease;">
+            <button onclick="closeProductModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 2rem; cursor: pointer; color: #6b7280;">✕</button>
+            <div style="padding: var(--space-xl);">
+                <h2 id="modalTitle" style="margin-bottom: var(--space-lg);">Categoría</h2>
+                <div class="cards-grid" id="modalProductsContainer">
+                    <!-- Los productos se insertan aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ ESTILOS DEL MODAL ============ -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f0fdf8;
-            color: #0f2137;
-            line-height: 1.6;
-        }
-
-        /* ============================================ NAVBAR ============================================ */
-        .navbar-wrapper {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 40px;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .navbar-wrapper.scrolled {
-            box-shadow: 0 1px 12px rgba(0,0,0,0.07);
-        }
-
-        .navbar-logo {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .navbar-logo h1 {
-            font-size: 22px;
-            font-weight: 800;
-            color: #10b981;
-            margin: 0;
-            line-height: 1;
-        }
-
-        .navbar-logo p {
-            font-size: 11px;
-            color: #94a3b8;
-            margin: 0;
-            text-transform: lowercase;
-            font-weight: 400;
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            list-style: none;
-            flex: 1;
-            margin-left: 80px;
-        }
-
-        .navbar-links a {
-            font-size: 14px;
-            color: #374151;
-            text-decoration: none;
-            transition: color 0.2s ease;
-            font-weight: 500;
-        }
-
-        .navbar-links a:hover {
-            color: #10b981;
-        }
-
-        .navbar-cart {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cart-icon {
-            width: 22px;
-            height: 22px;
-            color: #374151;
-            cursor: pointer;
-            transition: color 0.2s ease;
-        }
-
-        .cart-icon:hover {
-            color: #10b981;
-        }
-
-        .cart-badge {
-            background-color: #10b981;
-            color: white;
-            font-size: 10px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
-
-        /* ============================================ HERO SECTION ============================================ */
-        .hero {
-            background: linear-gradient(135deg, #f0fdf8 0%, #e6f5ee 60%, #d1fae5 100%);
-            min-height: 520px;
-            display: grid;
-            grid-template-columns: 55% 45%;
-            align-items: center;
-            padding: 80px 40px 80px 64px;
-            gap: 60px;
-        }
-
-        .hero-left {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-
-        .hero-pill {
-            background-color: #dcfce7;
-            color: #166534;
-            font-size: 12px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            width: fit-content;
-            font-weight: 600;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            line-height: 1.1;
-            color: #0f2137;
-        }
-
-        .hero-title .highlight {
-            color: #10b981;
-        }
-
-        .hero-description {
-            font-size: 16px;
-            color: #4b5563;
-            line-height: 1.7;
-            max-width: 460px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .btn-primary {
-            background-color: #10b981;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
+        .category-card {
+            background: white;
             border: none;
-            font-weight: 600;
-            font-size: 15px;
+            border-radius: var(--radius-card);
+            padding: var(--space-lg);
             cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #059669;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            border: 1.5px solid #10b981;
-            color: #10b981;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn-secondary:hover {
-            background-color: #f0fdf8;
-        }
-
-        .hero-benefits {
-            font-size: 12px;
-            color: #6b7280;
-            font-weight: 500;
-        }
-
-        .hero-right {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            height: 320px;
-        }
-
-        .hero-circle {
-            width: 280px;
-            height: 280px;
-            background-color: #d1fae5;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-pets-svg {
-            width: 200px;
-            height: 200px;
-        }
-
-        .hero-badge {
-            position: absolute;
-            background: white;
-            border-radius: 20px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            white-space: nowrap;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .hero-badge:nth-child(2) {
-            animation-delay: 0.3s;
-        }
-
-        .hero-badge:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .hero-badge:nth-child(4) {
-            animation-delay: 0.9s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-        }
-
-        /* ============================================ PRODUCTS SECTION ============================================ */
-        .products-section {
-            padding: 80px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 32px;
-            font-weight: 800;
-            color: #0f2137;
+            transition: var(--transition);
             text-align: center;
-            margin-bottom: 12px;
+            box-shadow: var(--shadow-card);
+            border: 2px solid transparent;
         }
 
-        .section-subtitle {
-            font-size: 16px;
-            color: #6b7280;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .product-category {
-            margin-bottom: 60px;
-        }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 28px;
-            border-left: 4px solid #10b981;
-            padding-left: 14px;
-        }
-
-        .category-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #0f2137;
-            margin: 0;
-        }
-
-        .category-badge {
-            background-color: #dcfce7;
-            color: #166534;
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-weight: 700;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 16px;
-            border: 1px solid #e5e7eb;
-            overflow: hidden;
-            display: grid;
-            grid-template-rows: 200px auto 1fr auto auto;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-        }
-
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.09);
-        }
-
-        .product-image {
-            background-color: #f0fdf8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            height: 200px;
-        }
-
-        .product-image svg {
-            width: 64px;
-            height: 64px;
-            color: #10b981;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            color: white;
-        }
-
-        .product-badge.new {
-            background-color: #10b981;
-        }
-
-        .product-badge.offer {
-            background-color: #f59e0b;
-        }
-
-        .product-heart {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 28px;
-            height: 28px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .product-heart:hover svg {
-            fill: #ef4444;
-            color: #ef4444;
-        }
-
-        .product-info {
-            padding: 14px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .product-name {
-            font-size: 15px;
-            font-weight: 700;
-            color: #0f2137;
-            line-height: 1.3;
-        }
-
-        .product-description {
-            font-size: 13px;
-            color: #6b7280;
-            line-height: 1.5;
-        }
-
-        .product-price {
-            font-size: 22px;
-            font-weight: 800;
-            color: #10b981;
-            margin: 10px 0;
-        }
-
-        .btn-add-cart {
-            width: 100%;
-            background-color: #10b981;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 11px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn-add-cart:hover {
-            background-color: #059669;
-        }
-
-        .btn-add-cart.added {
-            background-color: #059669;
-        }
-
-        /* ============================================ TOAST ============================================ */
-        .toast {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background-color: #0f2137;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 14px;
-            z-index: 1000;
-            animation: slideIn 0.3s ease;
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: var(--primary-green);
         }
 
         @keyframes slideIn {
             from {
-                transform: translateX(400px);
                 opacity: 0;
+                transform: translateY(-50px);
             }
             to {
-                transform: translateX(0);
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* ============================================ NOVEDADES SECTION ============================================ */
-        .novedades-section {
-            background: linear-gradient(180deg, #f0fdf8 0%, white 100%);
-            padding: 80px 40px;
-        }
-
-        .novedades-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .novedades-pill {
-            background-color: #dcfce7;
-            color: #166534;
-            font-size: 12px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .novedades-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 24px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .novedad-card {
-            background: white;
-            border-radius: 16px;
-            border: 1px solid #e5e7eb;
-            overflow: hidden;
-            display: grid;
-            grid-template-rows: 90px 1fr;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .novedad-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.09);
-        }
-
-        .novedad-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .novedad-header svg {
-            width: 48px;
-            height: 48px;
-        }
-
-        .novedad-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            color: white;
-        }
-
-        .novedad-badge.new {
-            background-color: #10b981;
-        }
-
-        .novedad-badge.offer {
-            background-color: #f59e0b;
-        }
-
-        .novedad-badge.llegó {
-            background-color: #0d9488;
-        }
-
-        .novedad-header.new { background-color: #dcfce7; }
-        .novedad-header.offer { background-color: #fef3c7; }
-        .novedad-header.llegó { background-color: #e0f2fe; }
-
-        .novedad-body {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .novedad-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #0f2137;
-        }
-
-        .novedad-description {
-            font-size: 13px;
-            color: #6b7280;
-            line-height: 1.5;
-            flex: 1;
-        }
-
-        .novedad-button {
-            width: 100%;
-            border: none;
-            border-radius: 8px;
-            padding: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            color: white;
-        }
-
-        .novedad-button.new-btn {
-            background-color: #10b981;
-        }
-
-        .novedad-button.offer-btn {
-            background-color: #f59e0b;
-        }
-
-        .novedad-button.llegó-btn {
-            background-color: #0d9488;
-        }
-
-        .novedad-button:hover {
-            opacity: 0.9;
-        }
-
-        /* ============================================ ABOUT SECTION ============================================ */
-        .about-section {
-            background: white;
-            padding: 80px 40px;
-        }
-
-        .about-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .about-left h2 {
-            font-size: 32px;
-            font-weight: 800;
-            color: #0f2137;
-            margin-bottom: 8px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .about-left h2::after {
-            content: '';
-            position: absolute;
-            bottom: -16px;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #10b981, #0d9488);
-            border-radius: 2px;
-        }
-
-        .about-left p:first-of-type {
-            font-size: 18px;
-            color: #0f2137;
-            font-weight: 500;
-            line-height: 1.6;
-            margin-top: 32px;
-            margin-bottom: 16px;
-        }
-
-        .about-left p {
-            font-size: 15px;
-            color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 28px;
-            font-weight: 800;
-            color: #10b981;
-        }
-
-        .stat-label {
-            font-size: 13px;
-            color: #6b7280;
-            margin-top: 4px;
-        }
-
-        .about-right {
-            background-color: #065f46;
-            border-radius: 20px;
-            padding: 32px;
-        }
-
-        .about-values {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .value-item {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .value-checkmark {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .value-text {
-            color: white;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .about-quote {
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: #6ee7b7;
-            font-size: 13px;
-            font-style: italic;
-        }
-
-        /* ============================================ FOOTER ============================================ */
-        .footer {
-            background-color: #0f2233;
-            color: white;
-            padding: 0;
-        }
-
-        .footer-top {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 32px 40px 24px;
-            text-align: center;
-        }
-
-        .footer-logo h1 {
-            font-size: 22px;
-            font-weight: 800;
-            color: white;
-            margin: 0 0 4px 0;
-        }
-
-        .footer-logo p {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
-            margin: 0;
-        }
-
-        .footer-main {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            padding: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-section h3 {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 16px;
-        }
-
-        .footer-contact li, .footer-info li {
-            list-style: none;
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer-contact a, .footer-info a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .footer-contact a:hover, .footer-info a:hover {
-            color: #10b981;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 10px;
-        }
-
-        .social-icon {
-            width: 36px;
-            height: 36px;
-            background-color: rgba(255, 255, 255, 0.08);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .social-icon:hover {
-            background-color: #10b981;
-        }
-
-        .social-icon svg {
-            width: 18px;
-            height: 18px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .social-icon:hover svg {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 16px 40px;
-            text-align: center;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* ============================================ RESPONSIVE ============================================ */
-        @media (max-width: 768px) {
-            .navbar-wrapper {
-                padding: 0 20px;
+        @media (max-width: 1024px) {
+            #productModal {
+                padding: var(--space-lg);
             }
-
-            .navbar-links {
-                display: none;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 40px 20px;
-                gap: 40px;
-                min-height: auto;
-            }
-
-            .hero-right {
-                height: 280px;
-            }
-
-            .hero-circle {
-                width: 240px;
-                height: 240px;
-            }
-
-            .products-section {
-                padding: 40px 20px;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-                gap: 16px;
-            }
-
-            .novedades-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .about-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-
-            .footer-main {
-                grid-template-columns: 1fr;
-                gap: 24px;
-                padding: 30px 20px;
-            }
-
-            .about-left h2 {
-                font-size: 24px;
-            }
-
-            .section-title {
-                font-size: 24px;
+            #productModal > div {
+                margin: 80px auto var(--space-lg);
             }
         }
 
-        @media (max-width: 480px) {
-            .navbar-wrapper {
-                height: auto;
-                flex-direction: column;
-                padding: 12px 16px;
-                gap: 12px;
-            }
-
-            .hero {
-                padding: 24px 16px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
+        @media (max-width: 600px) {
+            #productModal > div {
+                margin: 100px var(--space-sm) var(--space-sm);
+                max-width: none;
             }
         }
     </style>
-</head>
-<body>
-    <!-- NAVBAR -->
-    <nav class="navbar-wrapper" id="navbar">
-        <div class="navbar-logo">
-            <h1>Zetapets</h1>
-            <p>Tu tienda confiable de productos para mascotas</p>
-        </div>
-        <ul class="navbar-links">
-            <li><a href="#productos">Categorías</a></li>
-            <li><a href="#novedades">Novedades</a></li>
-            <li><a href="#about">Acerca de Nosotros</a></li>
-        </ul>
-        <div class="navbar-cart">
-            <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-            </svg>
-            <div class="cart-badge" id="cartBadge">0</div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-left">
-            <div class="hero-pill">🐾 Más de 200 productos disponibles</div>
-            <h1 class="hero-title">Bienvenido a <span class="highlight">Zetapets</span></h1>
-            <p class="hero-description">Descubre la mejor selección de productos de calidad para el cuidado y bienestar de tu mascota. Desde alimentos hasta accesorios, tenemos todo lo que necesitas.</p>
-            <div class="hero-buttons">
-                <button class="btn-primary" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">Explorar productos →</button>
-                <button class="btn-secondary" onclick="document.getElementById('novedades').scrollIntoView({behavior: 'smooth'})">Ver novedades</button>
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3 style="color: var(--primary-green); margin-bottom: var(--space-sm);">Zetapets</h3>
+                <p>Tu tienda confiable de productos para mascotas.</p>
             </div>
-            <div class="hero-benefits">✓ Envío gratis +$50 · ✓ Devoluciones 30 días · ✓ Pago seguro</div>
-        </div>
-        <div class="hero-right">
-            <div class="hero-circle">
-                <svg class="hero-pets-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Perro -->
-                    <ellipse cx="50" cy="120" rx="25" ry="35" fill="#10b981" opacity="0.8"/>
-                    <circle cx="50" cy="70" r="18" fill="#10b981" opacity="0.8"/>
-                    <circle cx="35" cy="55" r="5" fill="#10b981" opacity="0.8"/>
-                    <circle cx="65" cy="55" r="5" fill="#10b981" opacity="0.8"/>
-                    <circle cx="45" cy="65" r="3" fill="white" opacity="0.6"/>
-                    <!-- Gato -->
-                    <ellipse cx="130" cy="110" rx="20" ry="30" fill="#0d9488" opacity="0.8"/>
-                    <circle cx="130" cy="70" r="16" fill="#0d9488" opacity="0.8"/>
-                    <polygon points="130,50 120,58 140,58" fill="#0d9488" opacity="0.8"/>
-                    <polygon points="115,50 105,58 125,58" fill="#0d9488" opacity="0.8"/>
-                    <circle cx="125" cy="68" r="2.5" fill="white" opacity="0.6"/>
-                </svg>
-            </div>
-            <div class="hero-badge">🚚 Envío rápido</div>
-            <div class="hero-badge" style="top: 20px; right: 30px;">⭐ +500 reseñas</div>
-            <div class="hero-badge" style="bottom: 40px; left: 20px;">🔒 Pago seguro</div>
-        </div>
-    </section>
-
-    <!-- PRODUCTOS -->
-    <section class="products-section" id="productos">
-        <h2 class="section-title">Nuestros Productos</h2>
-        <p class="section-subtitle">Explora nuestro catálogo de productos destacados</p>
-
-        <!-- PARA MASCOTAS -->
-        <div class="product-category">
-            <div class="category-header">
-                <h3 class="category-title">Para Mascotas</h3>
-                <span class="category-badge">3 productos</span>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M50 20 L60 35 L75 35 L65 45 L70 60 L50 50 L30 60 L35 45 L25 35 L40 35 Z" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Limpiador de pelo</h4>
-                        <p class="product-description">Producto especializado para limpiar y cuidar el pelaje de tu mascota.</p>
-                        <p class="product-price">$28.99</p>
-                        <button class="btn-add-cart" onclick="addToCart('Limpiador de pelo', 28.99, this)">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <span class="product-badge new">NUEVO</span>
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="30" y="20" width="40" height="50" rx="5" fill="currentColor" opacity="0.7"/>
-                            <circle cx="45" cy="50" r="8" fill="white" opacity="0.4"/>
-                            <circle cx="55" cy="50" r="8" fill="white" opacity="0.4"/>
-                        </svg>
-                        <div class="product-heart" onclick="toggleHeart(event)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Comedero+Bebedero Automático</h4>
-                        <p class="product-description">Dispensador automático inteligente para comida y agua.</p>
-                        <p class="product-price">$79.99</p>
-                        <button class="btn-add-cart" onclick="addToCart('Comedero+Bebedero Automático', 79.99, this)">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M50 15 C50 15 35 25 35 40 C35 55 42 70 50 75 C58 70 65 55 65 40 C65 25 50 15 50 15" fill="currentColor" opacity="0.7"/>
-                            <circle cx="50" cy="42" r="4" fill="white" opacity="0.5"/>
-                        </svg>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Botella 3 en 1</h4>
-                        <p class="product-description">Botella multiusos para agua, comida y transportación.</p>
-                        <p class="product-price">$35.50</p>
-                        <button class="btn-add-cart" onclick="addToCart('Botella 3 en 1', 35.50, this)">Agregar al Carrito</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PARA PERROS -->
-        <div class="product-category">
-            <div class="category-header">
-                <h3 class="category-title">Para Perros</h3>
-                <span class="category-badge">2 productos</span>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="20" y="30" width="60" height="40" rx="3" fill="currentColor" opacity="0.6"/>
-                            <line x1="25" y1="35" x2="25" y2="65" stroke="white" stroke-width="2" opacity="0.3"/>
-                            <line x1="50" y1="35" x2="50" y2="65" stroke="white" stroke-width="2" opacity="0.3"/>
-                            <line x1="75" y1="35" x2="75" y2="65" stroke="white" stroke-width="2" opacity="0.3"/>
-                        </svg>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Paños Absorbentes</h4>
-                        <p class="product-description">Paños desechables de alta absorción para limpieza y cuidado.</p>
-                        <p class="product-price">$18.99</p>
-                        <button class="btn-add-cart" onclick="addToCart('Paños Absorbentes', 18.99, this)">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <span class="product-badge offer">OFERTA</span>
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <ellipse cx="50" cy="35" rx="12" ry="15" fill="currentColor" opacity="0.7"/>
-                            <rect x="40" y="50" width="20" height="30" rx="5" fill="currentColor" opacity="0.7"/>
-                        </svg>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Collar con soporte para AirTag</h4>
-                        <p class="product-description">Collar cómodo con compartimento seguro para AirTag.</p>
-                        <p class="product-price">$42.99</p>
-                        <button class="btn-add-cart" onclick="addToCart('Collar con soporte para AirTag', 42.99, this)">Agregar al Carrito</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PARA GATOS -->
-        <div class="product-category">
-            <div class="category-header">
-                <h3 class="category-title">Para Gatos</h3>
-                <span class="category-badge">1 producto</span>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="50,20 60,30 70,25 65,40 75,45 60,45 55,60 50,45 35,45 45,40 40,25 50,30" fill="currentColor" opacity="0.7"/>
-                        </svg>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Rascador Catnip</h4>
-                        <p class="product-description">Rascador con catnip integrado para mantener a tu gato estimulado.</p>
-                        <p class="product-price">$55.99</p>
-                        <button class="btn-add-cart" onclick="addToCart('Rascador Catnip', 55.99, this)">Agregar al Carrito</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ACCESORIOS -->
-        <div class="product-category">
-            <div class="category-header">
-                <h3 class="category-title">Accesorios</h3>
-                <span class="category-badge">2 productos</span>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="15" fill="currentColor" opacity="0.6"/>
-                            <path d="M50 35 L55 45 L65 45 L58 50 L62 60 L50 55 L38 60 L42 50 L35 45 L45 45 Z" fill="white" opacity="0.4"/>
-                        </svg>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Airtags</h4>
-                        <p class="product-description">Localizadores inteligentes para mantener a tu mascota segura.</p>
-                        <p class="product-price">$99.99</p>
-                        <button class="btn-add-cart" onclick="addToCart('Airtags', 99.99, this)">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="35" y="15" width="30" height="50" rx="8" fill="currentColor" opacity="0.7"/>
-                            <circle cx="50" cy="28" r="5" fill="white" opacity="0.3"/>
-                            <line x1="40" y1="45" x2="60" y2="45" stroke="white" stroke-width="1.5" opacity="0.3"/>
-                        </svg>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Llavero Porta Airtag</h4>
-                        <p class="product-description">Llavero protector y elegante para tu AirTag.</p>
-                        <p class="product-price">$24.99</p>
-                        <button class="btn-add-cart" onclick="addToCart('Llavero Porta Airtag', 24.99, this)">Agregar al Carrito</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NOVEDADES -->
-    <section class="novedades-section" id="novedades">
-        <div class="novedades-header">
-            <div class="novedades-pill">🆕 Actualizaciones recientes</div>
-            <h2 class="section-title">Novedades</h2>
-            <p class="section-subtitle">Últimos productos agregados al catálogo</p>
-        </div>
-        <div class="novedades-grid">
-            <div class="novedad-card" style="grid-column: span 2;">
-                <div class="novedad-header new">
-                    <span class="novedad-badge new">NUEVO</span>
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="30" y="20" width="40" height="50" rx="5" fill="currentColor" opacity="0.7"/>
-                    </svg>
-                </div>
-                <div class="novedad-body">
-                    <h3 class="novedad-title">Nuevo: Comedero Automático</h3>
-                    <p class="novedad-description">Comedero inteligente para alimentación programada de tu mascota.</p>
-                    <button class="novedad-button new-btn">Ver producto →</button>
-                </div>
-            </div>
-            <div class="novedad-card">
-                <div class="novedad-header offer">
-                    <span class="novedad-badge offer">OFERTA</span>
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 20 L60 35 L75 35 L65 45 L70 60 L50 50 L30 60 L35 45 L25 35 L40 35 Z" fill="currentColor"/>
-                    </svg>
-                </div>
-                <div class="novedad-body">
-                    <h3 class="novedad-title">Oferta: Shampoo Premium</h3>
-                    <p class="novedad-description">50% de descuento en nuestro shampoo hipoalergénico.</p>
-                    <button class="novedad-button offer-btn">Aprovechar oferta →</button>
-                </div>
-            </div>
-            <div class="novedad-card">
-                <div class="novedad-header llegó">
-                    <span class="novedad-badge llegó">LLEGÓ</span>
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 20 Q75 35 75 60 L25 60 Q25 35 50 20" fill="currentColor" opacity="0.7"/>
-                    </svg>
-                </div>
-                <div class="novedad-body">
-                    <h3 class="novedad-title">Llegó: Correa Ergonómica</h3>
-                    <p class="novedad-description">Correa con diseño ergonómico para mayor comodidad al pasear.</p>
-                    <button class="novedad-button llegó-btn">Ver producto →</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about-section" id="about">
-        <div class="about-content">
-            <div class="about-left">
-                <h2>Acerca de Zetapets</h2>
-                <p>En Zetapets, nos apasiona el bienestar de las mascotas. Desde hace más de 10 años, ofrecemos productos de la más alta calidad para ayudarte a cuidar a tus compañeros peludos.</p>
-                <p>Nuestro compromiso es proporcionar una amplia variedad de productos seguros, duraderos y asequibles, junto con un servicio al cliente excepcional.</p>
-                <p>Creemos que cada mascota merece lo mejor, y por eso seleccionamos cuidadosamente cada uno de nuestros productos.</p>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Años de experiencia</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Productos</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50K+</div>
-                        <div class="stat-label">Clientes felices</div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-right">
-                <div class="about-values">
-                    <div class="value-item">
-                        <svg class="value-checkmark" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        <span class="value-text">Productos 100% seguros para mascotas</span>
-                    </div>
-                    <div class="value-item">
-                        <svg class="value-checkmark" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        <span class="value-text">Selección curada por especialistas</span>
-                    </div>
-                    <div class="value-item">
-                        <svg class="value-checkmark" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        <span class="value-text">Garantía de satisfacción 30 días</span>
-                    </div>
-                    <div class="value-item">
-                        <svg class="value-checkmark" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        <span class="value-text">Atención al cliente 7 días</span>
-                    </div>
-                </div>
-                <div class="about-quote">"Tu mascota es parte de la familia, y nosotros la cuidamos como tal."</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-top">
-            <div class="footer-logo">
-                <h1>Zetapets</h1>
-                <p>Tu tienda confiable de productos para mascotas</p>
-            </div>
-        </div>
-        <div class="footer-main">
-            <div class="footer-section footer-contact">
-                <h3>Contacto</h3>
+            <div class="footer-col">
+                <span class="footer-col-title">Categorías</span>
                 <ul>
-                    <li>
-                        <svg style="width: 14px; height: 14px; display: inline; margin-right: 8px; vertical-align: text-bottom;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        +1 (555) 123-4567
-                    </li>
-                    <li>
-                        <svg style="width: 14px; height: 14px; display: inline; margin-right: 8px; vertical-align: text-bottom;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                        </svg>
-                        <a href="mailto:info@zetapets.com">info@zetapets.com</a>
-                    </li>
-                    <li>
-                        <svg style="width: 14px; height: 14px; display: inline; margin-right: 8px; vertical-align: text-bottom;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                        </svg>
-                        Calle Principal 123, Ciudad, País
-                    </li>
+                    <li><a href="#categoria-mascotas">Para Mascotas</a></li>
+                    <li><a href="#categoria-perros">Para Perros</a></li>
+                    <li><a href="#categoria-gatos">Para Gatos</a></li>
+                    <li><a href="#categoria-accesorios">Accesorios</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h3>Síguenos</h3>
-                <div class="footer-social">
-                    <div class="social-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </div>
-                    <div class="social-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <rect width="24" height="24" fill="none"/><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
-                        </svg>
-                    </div>
-                    <div class="social-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-section footer-info">
-                <h3>Información</h3>
+            <div class="footer-col">
+                <span class="footer-col-title">Empresa</span>
                 <ul>
-                    <li><a href="#privacidad">Política de Privacidad</a></li>
-                    <li><a href="#terminos">Términos y Condiciones</a></li>
-                    <li><a href="#faq">Preguntas Frecuentes</a></li>
+                    <li><a href="#about">Acerca de Nosotros</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Trabaja con Nosotros</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <span class="footer-col-title">Legal</span>
+                <ul>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Zetapets. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Zetapets. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <!-- ============ SCRIPT ============ -->
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 10) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        // Base de datos de productos por categoría
+        const products = {
+            mascotas: [
+                { name: 'Limpiador de pelo', price: 28.99, desc: 'Producto especializado para limpiar y cuidar el pelaje.' },
+                { name: 'Comedero Automático', price: 79.99, desc: 'Dispensador automático inteligente para comida y agua.' },
+                { name: 'Botella 3 en 1', price: 35.50, desc: 'Botella multiusos para agua, comida y transportación.' }
+            ],
+            perros: [
+                { name: 'Paños Absorbentes', price: 18.99, desc: 'Paños desechables de alta absorción para limpieza.' },
+                { name: 'Collar para AirTag', price: 42.99, desc: 'Collar cómodo con compartimento seguro para AirTag.' }
+            ],
+            gatos: [
+                { name: 'Rascador Catnip', price: 55.99, desc: 'Rascador con catnip integrado para gatos estimulados.' }
+            ],
+            accesorios: [
+                { name: 'Airtags', price: 99.99, desc: 'Localizadores inteligentes para mantener mascotas seguras.' },
+                { name: 'Llavero Porta Airtag', price: 24.99, desc: 'Llavero protector y elegante para tu AirTag.' }
+            ]
+        };
+
+        // Drawer mobile
+        const hamburger = document.querySelector('.nav-hamburger');
+        const drawer = document.querySelector('.nav-drawer');
+        const overlay = document.querySelector('.nav-overlay');
+        const closeBtn = document.querySelector('.drawer-close');
+
+        function openDrawer() {
+            drawer.classList.add('is-open');
+            overlay.classList.add('is-visible');
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('is-open');
+            overlay.classList.remove('is-visible');
+        }
+
+        hamburger.addEventListener('click', openDrawer);
+        closeBtn.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+
+        // Drawer links close drawer
+        document.querySelectorAll('.nav-drawer a').forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
+
+        // Modal functionality
+        function openCategoryModal(category, categoryName) {
+            const modal = document.getElementById('productModal');
+            const title = document.getElementById('modalTitle');
+            const container = document.getElementById('modalProductsContainer');
+
+            title.textContent = categoryName;
+            container.innerHTML = '';
+
+            const categoryProducts = products[category] || [];
+            categoryProducts.forEach(product => {
+                const card = document.createElement('article');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-image">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="30" fill="#10b981" opacity="0.7"/>
+                            <path d="M50 30 L55 40 L65 40 L58 45 L62 55 L50 50 L38 55 L42 45 L35 40 L45 40 Z" fill="white" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">${product.name}</h3>
+                        <p style="font-size: 1.25rem; font-weight: 700; color: var(--primary-green); margin: 0.5rem 0;">$${product.price.toFixed(2)}</p>
+                        <p class="card-desc">${product.desc}</p>
+                        <button class="btn-primary" style="width: 100%; margin-top: 0.75rem;" onclick="addToCart('${product.name}', ${product.price}, this)">🛒 Agregar al carrito</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'flex-start';
+            modal.style.justifyContent = 'center';
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Cerrar modal al presionar ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeProductModal();
+            }
+        });
+
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('productModal').addEventListener('click', (e) => {
+            if (e.target.id === 'productModal') {
+                closeProductModal();
             }
         });
 
@@ -1307,18 +403,15 @@
             cartCount++;
             document.getElementById('cartBadge').textContent = cartCount;
             
-            // Change button appearance
             const originalText = button.textContent;
             button.textContent = '✓ Agregado';
-            button.classList.add('added');
+            button.style.opacity = '0.65';
             
-            // Show toast
             showToast(`${productName} agregado al carrito`);
             
-            // Reset button after 1.5 seconds
             setTimeout(() => {
                 button.textContent = originalText;
-                button.classList.remove('added');
+                button.style.opacity = '1';
             }, 1500);
         }
 
@@ -1332,12 +425,7 @@
                 toast.remove();
             }, 2500);
         }
-
-        function toggleHeart(e) {
-            e.stopPropagation();
-            const heart = e.currentTarget.querySelector('svg');
-            heart.style.fill = heart.style.fill === 'rgb(239, 68, 68)' ? 'none' : '#ef4444';
-        }
     </script>
+    <script src="manejoDOM.js"></script>
 </body>
 </html>
