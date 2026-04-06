@@ -158,15 +158,15 @@
                 <div style="margin-bottom: 2rem;">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; max-width: 600px; margin: 0 auto; font-size: 0.9rem;">
                         <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px; color: white;">
-                            <div style=\"font-size: 2rem; font-weight: 700; color: #fcd34d;\">-40%</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #fcd34d;">-40%</div>
                             <div>Limpiador de Pelo</div>
                         </div>
                         <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px; color: white;">
-                            <div style=\"font-size: 2rem; font-weight: 700; color: #fcd34d;\">-35%</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #fcd34d;">-35%</div>
                             <div>Comedero Automático</div>
                         </div>
                         <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px; color: white;">
-                            <div style=\"font-size: 2rem; font-weight: 700; color: #fcd34d;\">-30%</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #fcd34d;">-30%</div>
                             <div>Paños Absorbentes</div>
                         </div>
                     </div>
@@ -367,9 +367,11 @@
                         <h3 class="card-title">${product.name}</h3>
                         <p style="font-size: 1.25rem; font-weight: 700; color: var(--primary-green); margin: 0.5rem 0;">$${product.price.toFixed(2)}</p>
                         <p class="card-desc">${product.desc}</p>
-                        <button class="btn-primary" style="width: 100%; margin-top: 0.75rem;" onclick="addToCart('${product.name}', ${product.price}, this)">🛒 Agregar al carrito</button>
+                        <button class="btn-primary" style="width: 100%; margin-top: 0.75rem;" data-product="${product.name}" data-price="${product.price}">🛒 Agregar al carrito</button>
                     </div>
                 `;
+                const btn = card.querySelector('button');
+                btn.addEventListener('click', () => addToCart(product.name, product.price, btn));
                 container.appendChild(card);
             });
 
