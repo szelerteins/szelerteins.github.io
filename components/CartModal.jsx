@@ -1,13 +1,9 @@
 'use client';
 
-import { useCart } from '@/lib/CartContext';
-
-const CartModal = ({ isOpen, onClose, onCheckout }) => {
-  const { cart, removeFromCart, updateQuantity, getSubtotal } = useCart();
-
+const CartModal = ({ isOpen, onClose, cart, onUpdateQuantity, onRemoveFromCart, onCheckout }) => {
   if (!isOpen) return null;
 
-  const subtotal = getSubtotal();
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const tax = subtotal * 0.1;
   const total = subtotal + tax;
 
@@ -30,18 +26,18 @@ const CartModal = ({ isOpen, onClose, onCheckout }) => {
                   <p className="cart-item-price">${item.price.toFixed(2)} c/u</p>
                 </div>
                 <div className="cart-item-controls">
-                  <button className="qty-btn" onClick={() => updateQuantity(index, item.quantity - 1)}>−</button>
+                  <button className="qty-btn" onClick={() => onUpdateQuantity(index, item.quantity - 1)}>−</button>
                   <input
                     type="number"
                     className="qty-input"
                     value={item.quantity}
-                    onChange={(e) => updateQuantity(index, parseInt(e.target.value) || 1)}
+                    onChange={(e) => onUpdateQuantity(index, parseInt(e.target.value) || 1)}
                   />
-                  <button className="qty-btn" onClick={() => updateQuantity(index, item.quantity + 1)}>+</button>
+                  <button className="qty-btn" onClick={() => onUpdateQuantity(index, item.quantity + 1)}>+</button>
                 </div>
                 <div className="cart-item-total">
                   <p className="subtotal">${(item.price * item.quantity).toFixed(2)}</p>
-                  <button className="btn-remove" onClick={() => removeFromCart(index)}>Eliminar</button>
+                  <button className="btn-remove" onClick={() => onRemoveFromCart(index)}>Eliminar</button>
                 </div>
               </div>
             ))
@@ -50,26 +46,26 @@ const CartModal = ({ isOpen, onClose, onCheckout }) => {
 
         {cart.length > 0 && (
           <>
-            <div style={{ borderTop: '1px solid var(--border-thin)', paddingTop: '1rem', marginBottom: '1.5rem' }}>
+            <div style={{ borderTop: '2px solid #e2e8f0', paddingTop: 'var(--space-md)', marginBottom: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                 <span>Subtotal:</span>
-                <span id="cartSubtotal">${subtotal.toFixed(2)}</span>
+                <span style={{ fontWeight: '700' }}>${subtotal.toFixed(2)}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                 <span>Impuesto (10%):</span>
-                <span id="cartTax">${tax.toFixed(2)}</span>
+                <span style={{ fontWeight: '700' }}>${tax.toFixed(2)}</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.25rem', fontWeight: '700' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.25rem', fontWeight: '700', color: 'var(--primary-green)' }}>
                 <span>Total:</span>
-                <span id="cartTotal" style={{ color: 'var(--primary-green)' }}>${total.toFixed(2)}</span>
+                <span>${total.toFixed(2)}</span>
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem' }}>
+            <div style={{ display: 'flex', gap: 'var(--space-md)' }}>
               <button className="btn-primary" style={{ flex: 1 }} onClick={onCheckout}>
                 Proceder al pago
               </button>
-              <button className="btn-secondary" style={{ flex: 1, background: 'var(--bg-light)', color: 'var(--text-dark)', border: '1px solid var(--border-thin)' }} onClick={onClose}>
+              <button className="btn-primary" style={{ flex: 1, backgroundColor: '#0f766e' }} onClick={onClose}>
                 Continuar comprando
               </button>
             </div>

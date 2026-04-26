@@ -1,9 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useCart } from '@/lib/CartContext';
 
-const CheckoutModal = ({ isOpen, onClose }) => {
+const CheckoutModal = ({ isOpen, onClose, cart = [], onConfirmOrder }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -14,11 +13,10 @@ const CheckoutModal = ({ isOpen, onClose }) => {
     city: '',
     paymentMethod: ''
   });
-  const { cart, clearCart, getSubtotal } = useCart();
 
   if (!isOpen) return null;
 
-  const subtotal = getSubtotal();
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const tax = subtotal * 0.1;
   const total = subtotal + tax;
 
@@ -53,8 +51,7 @@ const CheckoutModal = ({ isOpen, onClose }) => {
       alert('Por favor selecciona un método de pago');
       return;
     }
-    alert(`¡Pedido realizado! ${formData.firstName}, recibirás un email de confirmación.`);
-    clearCart();
+    onConfirmOrder(formData);
     setStep(1);
     setFormData({
       firstName: '',
@@ -65,7 +62,6 @@ const CheckoutModal = ({ isOpen, onClose }) => {
       city: '',
       paymentMethod: ''
     });
-    onClose();
   };
 
   return (

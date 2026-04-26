@@ -1,11 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { useCart } from '@/lib/CartContext';
 
-const Header = ({ onCartClick }) => {
+const Header = ({ onCartClick, cartCount = 0 }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { getTotalItems } = useCart();
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -69,7 +67,7 @@ const Header = ({ onCartClick }) => {
               <circle cx="20" cy="21" r="1" />
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
             </svg>
-            <span id="cartBadge">{getTotalItems()}</span>
+            <span id="cartBadge">{cartCount}</span>
           </button>
         </div>
 
@@ -77,6 +75,23 @@ const Header = ({ onCartClick }) => {
           <span></span><span></span><span></span>
         </button>
       </nav>
+
+      {isDrawerOpen && (
+        <div className="nav-drawer">
+          <button className="drawer-close" onClick={() => setIsDrawerOpen(false)}>✕</button>
+          <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-sm)' }}>
+            <li><a href="#categorias" onClick={(e) => { e.preventDefault(); scrollToSection('categorias'); }}>Categorías</a></li>
+            <li><a href="#ofertas" onClick={(e) => { e.preventDefault(); scrollToSection('ofertas'); }}>Novedades</a></li>
+            <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>Acerca de Nosotros</a></li>
+          </ul>
+        </div>
+      )}
+      {isDrawerOpen && <div className="nav-overlay" onClick={() => setIsDrawerOpen(false)}></div>}
+    </header>
+  );
+};
+
+export default Header;
 
       <div className={`nav-drawer ${isDrawerOpen ? 'is-open' : ''}`}>
         <button className="drawer-close" onClick={() => setIsDrawerOpen(false)}>✕</button>

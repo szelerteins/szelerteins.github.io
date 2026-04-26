@@ -1,14 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { useCart } from '@/lib/CartContext';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onAddToCart }) => {
   const [isAdded, setIsAdded] = useState(false);
-  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addToCart(product);
+    onAddToCart(product);
     setIsAdded(true);
     
     setTimeout(() => {
