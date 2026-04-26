@@ -1,154 +1,70 @@
-# Zetapets - E-commerce con React
+# Getting Started with Create React App
 
-Proyecto de e-commerce para productos de mascotas, construido con React y optimizado con componentes reutilizables y gestión de estado.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 🚀 Características
+## Available Scripts
 
-- **Interfaz moderna y responsiva** - Diseño mobile-first con CSS personalizado
-- **Carrito de compras funcional** - Gestión de productos en tiempo real
-- **Sistema de checkout** - Validación de formularios y métodos de pago
-- **Navegación fluida** - Menú responsivo con drawer mobile
-- **Context API** - Gestión centralizada del carrito
-- **Componentes reutilizables** - Arquitectura modular y escalable
+In the project directory, you can run:
 
-## 📁 Estructura del Proyecto
+### `npm start`
 
-```
-zetapets/
-├── public/
-│   ├── index.html
-│   └── img/
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── Hero.jsx
-│   │   ├── ProductCard.jsx
-│   │   ├── ProductSection.jsx
-│   │   ├── CartModal.jsx
-│   │   └── CheckoutModal.jsx
-│   ├── context/
-│   │   └── CartContext.jsx
-│   ├── data/
-│   │   └── products.js
-│   ├── styles/
-│   │   ├── style.css
-│   │   └── normalize.css
-│   ├── App.jsx
-│   └── main.jsx
-├── package.json
-├── vite.config.js
-└── .eslintrc.json
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## 🛠️ Instalación
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-```bash
-cd zetapets
-npm install
-```
+### `npm test`
 
-## 📦 Dependencias
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- **React** (^18.2.0) - Librería de UI
-- **Vite** (^4.4.0) - Build tool
-- **ESLint** (^8.44.0) - Linter
+### `npm run build`
 
-## 🚀 Desarrollo
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Para iniciar el servidor de desarrollo:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```bash
-npm run dev
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-El proyecto se abrirá automáticamente en `http://localhost:3000`
+### `npm run eject`
 
-## 🏗️ Build
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-Para crear una versión de producción:
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```bash
-npm run build
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## 📋 Características Principales
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-### 1. Componentes
-- **Header** - Navegación con mega menú y drawer mobile
-- **Hero** - Sección principal con CTA
-- **ProductCard** - Tarjeta reutilizable de productos
-- **ProductSection** - Grid de productos por categoría
-- **CartModal** - Modal del carrito con gestión de cantidad
-- **CheckoutModal** - Flujo de compra en 2 pasos
+## Learn More
 
-### 2. Context API - CartContext
-```javascript
-// Funciones disponibles
-- addToCart(product)
-- removeFromCart(index)
-- updateQuantity(index, quantity)
-- clearCart()
-- getTotalItems()
-- getSubtotal()
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### 3. Base de Datos de Productos
-Categorías:
-- Mascotas (general)
-- Perros
-- Gatos
-- Accesorios
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## 🎨 Estilos
+### Code Splitting
 
-El proyecto utiliza CSS personalizado con:
-- **Variables CSS** - Sistema de colores y espaciado consistente
-- **Grid y Flexbox** - Layouts responsivos
-- **Media queries** - Soporte para tablet y mobile
-- **Animaciones** - Transiciones suaves
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Colores principales
-- Verde primario: `#10b981`
-- Cian primario: `#0d9488`
-- Fondo claro: `#f8fafc`
+### Analyzing the Bundle Size
 
-## 📱 Responsividad
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-- ✅ Desktop (1200px+)
-- ✅ Tablet (1024px)
-- ✅ Mobile (600px)
+### Making a Progressive Web App
 
-## 🔧 Scripts disponibles
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-```json
-{
-  "dev": "vite",           // Inicia el servidor de desarrollo
-  "build": "vite build",   // Crea el build de producción
-  "preview": "vite preview", // Preview del build
-  "lint": "eslint src"     // Ejecuta ESLint
-}
-```
+### Advanced Configuration
 
-## 💡 Optimizaciones Implementadas
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-1. **Gestión de estado centralizada** con Context API
-2. **Componentes funcionales** con hooks
-3. **Re-renders optimizados** con separación de concerns
-4. **CSS modular** organizado por secciones
-5. **Código limpio** y reutilizable
+### Deployment
 
-## 🤝 Contribuir
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-El proyecto está estructurado para facilitar futuras mejoras:
-- Agregar nuevas categorías de productos
-- Implementar autenticación
-- Integrar pasarelas de pago reales
-- Expandir el sistema de notificaciones
+### `npm run build` fails to minify
 
-## 📝 Licencia
-
-Este proyecto es de código abierto y está disponible bajo la Licencia MIT.
-
----
-
-**Creado con ❤️ para Zetapets**
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
