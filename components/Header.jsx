@@ -92,18 +92,3 @@ const Header = ({ onCartClick, cartCount = 0 }) => {
 };
 
 export default Header;
-
-      <div className={`nav-drawer ${isDrawerOpen ? 'is-open' : ''}`}>
-        <button className="drawer-close" onClick={() => setIsDrawerOpen(false)}>✕</button>
-        <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-sm)' }}>
-          <li><a href="#categorias" onClick={(e) => { e.preventDefault(); scrollToSection('categorias'); }}>Categorías</a></li>
-          <li><a href="#ofertas" onClick={(e) => { e.preventDefault(); scrollToSection('ofertas'); }}>Novedades</a></li>
-          <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>Acerca de Nosotros</a></li>
-        </ul>
-      </div>
-      <div className={`nav-overlay ${isDrawerOpen ? 'is-visible' : ''}`} onClick={() => setIsDrawerOpen(false)}></div>
-    </header>
-  );
-};
-
-export default Header;
